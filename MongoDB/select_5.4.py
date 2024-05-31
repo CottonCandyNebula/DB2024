@@ -30,7 +30,7 @@ pipeline = [
     },
     {
         '$match': {
-            'mark': {'$gt': 2}  # Filter for marks greater than 2 (passed)
+            'mark': {'$gt': 2}
         }
     },
     {
