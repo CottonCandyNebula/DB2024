@@ -1,0 +1,664 @@
+CREATE TABLE Students (
+	id int identity(1,1) not null,
+	name varchar(100) not null, 
+	date_of_birth date not null,
+	address varchar(100) not null,
+	email varchar(100) not null,
+	id_group int not null,
+	budget_place bit not null
+);
+
+
+INSERT INTO
+    Students(name, date_of_birth, address, email, id_group,budget_place)
+VALUES
+('Maslennikov Nikolai Pavlovich','2004-10-21','Voronezh, Karl Marx Street, 10','MaslennikovNikolai@yandex.ru', 1, 1),
+('Gorshkova Arina Mikhailovna','2004-08-25','Saratov, Zheleznodorozhnaya str., 48','Arina.Gorshkova@gmail.com', 1, 1),
+('Grishin Semyon Ilyich','2005-12-19','Saratov, ul. Nagornaya, 1','Semen.Grishin@gmail.com', 1, 0),     ('Kozlov Daniil Mykhailovych','2005-10-30','Novosibirsk, ul. Stepnaya, 15','KozlovDaniil@yandex.ru', 1, 1),
+('Efimova Eva Ilyinichna','2004-04-20','Krasnoyarsk, Kommunisticheskaya Street 1','EfimovaEva@yandex.ru', 1, 1),
+('Semenova Aleksandra Alekseevna','2004-09-25','Saratov, ul. Sovetskaya, 44','Aleksandra.Semenova@gmail.com', 1, 0),
+('Nechaeva Elizaveta Egorovna','2005-10-27','Voronezh, ul. Rabochaya, 50','NechaEva@example.com', 1, 1),
+('Semenova Varvara Bogdanovna','2002-04-07','Tyumen, ul. Zelenaya, 20','VarS_B@example.com',2,1),
+('Belikov Grigory Andreevich','2002-08-08','Chelyabinsk, ul. Vishnevaya, 18','Gregori.Belikov@yandex.ru',2,0),
+('Kravtsov Svyatoslav Makarovich','2003-10-30','Saratov, ul. Andreeva, 16','Kravtsov_Svyat@gmail.com',2,1),
+('Rudakova Miroslava Timofeevna','2003-03-31','Saratov, ul. Aranovoi, 8','Miroslava.R@yandex.ru',2,1),
+('Zaitseva Milana Alekseevna','2002-03-04','Saratov, ul. Arbatskaya, 57','Zaitsev_Milan@gmail.com',2,1),
+('Tikhonova Viktoria Vladimirovna','2002-08-28','Saratov, ul. Baikalskaya, 3','Viktoria.Tikhonova@yandex.ru',2,1),
+('Knyazev Stepan Kirillovich','2002-08-21','Saratova, ul. Baikalskaya 12','Stepan.Knyazev@yandex.ru',2,1),
+('Filatov Nikita Yaroslavovich','2004-11-12','Saratov, ul. Andreeva, 13','Filatov_Nikita@yandex.ru',3,0),
+('Sofronov Boris Andreevich','2004-05-01','Saratov, ul. Aranovoi, 6','Sofronov_Boris@yandex.ru',3,0),
+('Leonova Sofia Glebovna','2004-11-12','Saratov, ul. Artilleriskaya 8','Leonova_Sofia@yandex.ru',3,0),
+('Petrov Nikolai Timofeevich','2004-05-04','Saratov, ul. Aranovoi, 9','Petrov_Nikolai@yandex.ru',3,0),
+('Nesterova Uliana Mikhailovna','2004-01-18','Saratov, ul. Balashovskaya, 37','Nesterova_Uliana@yandex.ru',3,0),
+('Konovalov Vladislav Vladimirovich','2003-02-15','Saratov, ul. Bardina, 4','Konovalov_Vladislav@yandex.ru',3,0),
+('Vinogradova Miloslava Dmitrievna','2003-01-25','Saratov, ul. Bardina, 2','Vinogradova_Miloslava@yandex.ru',3,0),
+('Berezina Anna Danilovna','2003-05-14','Saratov, ul. Bardina, 6','Berezina_Anna@gmail.ru',4,1),
+('Grigorieva Yana Arsentievna','2002-08-22','Saratov, ul. Bakhmetyevskaya, 9','Grigorieva_Yana@yandex.ru',4,0),
+('Makarov Mikhail Nikitich','2002-07-28','Saratov, ul. Andreeva, 21','Makarov_Mikhail@yandex.ru',4,1),
+('Lebedev Igor Pavlovich','2003-01-02','Saratov, ul. Belinsky, 16','Lebedev_Igor@mail.ru',4,0),
+('Latysheva Polina Artemyevna','2002-03-25','Saratov, ul. Chkalova, 86','Latysheva_Polina@yandex.ru',4,1),
+('Nosova Stefaniya Alekseevna','2002-05-05','Samara, Trudovaya St., 24','Nosova_Stefaniya@yandex.ru',4,0),
+('Ivanov Ivan Makarovich','2002-12-10','Saratov, ul. Bardina, 8','Ivanov_Ivan@gmail.ru',4,1),
+('Levin Roman Fyodorovich','2003-06-02','Saratov, ul. Bolsheshuberskaya, 13','Levin_Roman@yandex.ru',5,1),
+('Afanasyeva Viktoria Ilyinichna','2003-12-23','Saratov, ul. Druzhby 6','Afanasyeva_Viktoria@yandex.ru',5,1),
+('Rudnev Erik Damirovich','2004-11-29','Saratov, ul. Solnechnaya, 10','Rudnev_Erik@gmail.ru',5,0),
+('Zolotarev Lev Ilyich','2004-12-19','Saratov, ul. Tikhaya, 26','Zolotarev_Lev@mail.ru',5,1),
+('Trofimova Kira Ivanovna','2003-12-11','Saratov, ul. Lugovaya, 11','Trofimova_Kira@yandex.ru',5,1),
+('Matveeva Arina Mikhailovna','2004-11-18','Saratov, ul. Lesnaya, 4','Matveeva_Arina@yandex.ru',5,0),
+('Morozov Kirill Konstantinovich','2004-09-26','Saratov, Kuznechnaya St., 33','Morozov_Kirill@yandex.ru
+',5,1),
+('Tarasova Varvara Yuryevna','2004-07-21','Saratov, ul. Novaya, 14','Varya_Tarasova@yandex.ru',6,1),
+('Sidorov Nikita Konstantinovich','2004-01-29','Saratov, ul. Sergievo-Vladimirskaya, 26','Sidorov_Nik@gmail.com',6,1),
+('Zakharov Yaroslav Artyomovich','2004-01-01','Saratov, Raduzhnaya St., 23','Yaro_Zak@hotmail.com',6,1),
+('Zhukov Timofey Maksimovich','2004-12-11','Saratov, ul. Sellakhskaya 4','Zhukov_Tim@gmail.com',6,1),
+('Daniil Mikhailovich Shcherbakov','2005-05-08','Solnechnogorsk, 70 Kosiora St','DMScherbakov@gmail.com',6,1),
+('Isakov Ivan Andreevich','2004-10-22','Saratov, ul. Molokova, 7','Isakov_Ivan@mail.ru',6,1),
+('Suslova Sofia Alexandrovna','2004-06-13','Saratov, Naberezhnaya St., 12','Suslova_Sofia@mail.ru',6,1),
+('Andrey Romanovich Rybakov','2003-09-30','Nizhniy Novgorod, ul. Polevaya, 19','Andrey_Rybakov@yandex.ru',7,1),
+('Ivanov Lev Mikhailovich','2002-09-15','Shchelkovo, ul. Novaya, 13','leo.ivanov@gmail.com',7,0),
+('Fokina Yulia Maksimovna','2002-03-25','Saratov, ul. Molokova, 8','Yulia_Fokina@yandex.ru',7,1),
+('Emelyanova Diana Dmitrievna','2002-02-11','Saratov, ul. Lesnaya, 14','diana.emelyanova@gmail.com',7,1),
+('Semenov Georgy Timofeevich','2002-04-15','Saratov, Tsentralnaya St., 3','Georgy_Semenov@yandex.ru',7,1),
+('Zolotov Leonid Semenovich','2003-02-20','Saratov, ul. Novaya, 18','Leonid_Zolotov@yandex.ru',7,0),
+('Suslova Anna Makarovna','2003-02-13','Saratov, ul. Dachnaya, 33','anna.suslova@gmail.com',7,1),
+('Popov Maksim Markovich','2004-09-27','Saratov, ul. Lenina, 10','Maksim_Popov@yandex.ru',8,1),
+('Ilyin Ilya Mykhailovych','2004-08-06','Saratov, ul. Polevaya, 13','ilya.ilyin@gmail.com',8,1),
+('Uspensky Kirill Lvovich','2003-02-07','Saratov, ul. Dollunskaya, 29','Kirill_Uspensky@yandex.ru',8,0),
+('Belov Bogdan Georgievich','2003-03-18','Stroitelnaya str., 22, Saratov','bogdan.belov@gmail.com',8,1),
+('Samsonova Elina Emirovna','2003-02-23','Saratov, ul. Asinovskaya, 15','Elina_Samsonova@yandex.ru',8,1),
+('Pavlov Andrey Ilyich','2004-04-30','Saratov, ul. Severnaya 1','Andrey_Pavlov@yandex.ru',8,0),
+('Belova Nikol Maksimovna','2003-02-08','Saratov, ul. Dachnaya, 32','belova_n@gmail.com',8,0),
+('Nazarova Alisa Tikhonovna','2004-07-29','Penza, ul. Raduzhnaya, 14','Alisa_Nazarova@yandex.ru',9,0),
+('Sokolova Avrora Markovna','2005-07-03','Samara, ul. Partizanskaya, 14','avrora.sokolova@gmail.com',9,0),
+('Dmitry Yaroslavovich Dubrovin','2004-01-09','Saratov, ul. Asinovskaya, 16','Dmitry_Dubrovin@yandex.ru',9,1),
+('Parfenova Eva Alexandrovna','2005-03-10','Saratov, Druzhby St., 8','Eva_Parfenova@yandex.ru',9,1),
+('Sedov Aleksandr Vladimirovich','2005-08-30','Saratov, ul. Aranovoi, 8','Aleksandr_Sedov@yandex.ru',9,1),
+('Orlov Yury Artyomovich','2004-03-26','Saratov, ul. Andreeva, 16','Yuri_Orlov@yandex.ru',9,0),
+('Titov Daniil Yegorovich','2004-11-17','Saratov, ul. Chkalova, 87','daniil.titov@gmail.com',9,1);
+
+
+CREATE TABLE Phone_numbers (
+	id int not null,
+	number varchar(100) not null 
+);
+
+INSERT INTO
+	Phone_numbers(id,number)
+VALUES
+	(1, '89921721781'),
+    (1, '84244155652'),
+    (2, '80694224027'),
+    (3, '81170716596'),
+    (4, '81741869980'),
+    (5, '84062073875'),
+    (6, '86636090378'),
+    (6, '80112029383'),
+    (7, '89258586000'),
+    (8, '84969009891'),
+    (8, '82848566494'),
+    (9, '80774706721'),
+    (10, '87547085928'),
+    (11, '86368827033'),
+    (12, '85735744110'),
+    (12, '82638729871'),
+    (13, '89449728484'),
+    (14, '84035425621'),
+    (15, '82874718537'),
+    (16, '80983072123'),
+    (17, '85623426908'),
+    (18, '88119541532'),
+    (19, '82162977456'),
+    (19, '82351259654'),
+    (20, '88591279826'),
+    (21, '84917053398'),
+    (22, '87595430933'),
+    (23, '85302075529'),
+    (24, '82712608717'),
+    (25, '82399260327'),
+    (26, '84044499331'),
+    (27, '83425007358'),
+    (28, '88673469002'),
+    (29, '89305685437'),
+    (29, '86399454129'),
+    (29, '82626799931'),
+    (30, '89364884777'),
+    (31, '87896720465'),
+    (32, '88055626388'),
+    (33, '82489729629'),
+    (34, '80060080346'),
+    (35, '81018844595'),
+    (36, '88547829932'),
+    (37, '84623989840'),
+    (38, '89904022873'),
+    (39, '80271509449'),
+    (40, '89314682905'),
+    (41, '83911245621'),
+    (42, '87197306589'),
+    (43, '85328320375'),
+    (44, '85654364896'),
+    (45, '89055354969'),
+    (46, '88664377861'),
+    (47, '88252034142'),
+    (48, '84385986421'),
+    (49, '80366030012'),
+    (50, '80408408431'),
+    (51, '86922356187'),
+    (52, '88684149433'),
+    (53, '85559566776'),
+    (54, '81759806559'),
+    (55, '85354513045'),
+    (56, '85354513045'),
+    (57, '82005529213'),
+    (57, '85761455476'),
+    (58, '80018218220'),
+    (59, '80647655349'),
+    (59, '87320732569'),
+    (60, '80244446970'),
+    (61, '83076323452'),
+    (62, '81858444125'),
+    (63, '83609857717');
+
+CREATE TABLE Group_stud (
+	id int identity(1,1) not null,
+	designation varchar(50) not null,
+	direction_id INT NOT NULL
+);
+
+INSERT INTO
+    Group_stud(designation,direction_id)
+VALUES
+     ('OBST203', 1),
+     ('OBST201', 1),
+     ('OBST202', 1),
+     ('M201', 2),
+     ('M202', 2),
+     ('M203', 2),
+     ('ARCT201', 3),
+     ('ARCT202', 3),
+     ('ARCT203', 3);
+
+CREATE TABLE Direction (
+	id int identity(1,1) not null,
+	title varchar(200) not null
+);
+
+INSERT INTO
+	Direction(title)
+VALUES
+    ('OPTICAL AND BIOTECHNICAL SYSTEMS AND TECHNOLOGIES'),
+    ('MECHANICAL ENGINEERING'),
+    ('AVIATION AND ROCKET AND SPACE ENGINEERING');
+
+CREATE TABLE teachers_and_subjects (
+	id int not null,
+	subject_id INT NOT NULL,
+	teacher_id INT NOT NULL,
+	direction_id INT NOT NULL
+);
+
+INSERT INTO
+    teachers_and_subjects(id,subject_id,teacher_id,direction_id)
+VALUES
+    (1,1,1,2),
+    (2,2,2,2),
+    (3,3,3,2),
+    (4,2,2,3),
+    (5,4,4,3),
+    (6,5,4,3),
+    (7,6,5,1),
+    (8,2,2,1),
+    (9,7,3,1);
+
+CREATE TABLE Subjects (
+	id int identity(1,1) not null,
+	subject varchar(150) NOT NULL
+);
+
+INSERT INTO
+    Subjects(subject)
+VALUES
+     ('Technical mechanics'),
+     ('Higher Mathematics'),
+     ('Metrology'),
+     ('Technical operation of aircraft and engines'),
+     ('Electric power and energy supply'),
+     ('Device, systems and medical products'),
+     ('Radiometry and Spectrometry');
+
+CREATE TABLE Teachers (
+	id int identity(1,1) not null,
+	name_t varchar(100) NOT NULL
+);
+
+INSERT INTO
+    Teachers(name_t)
+VALUES
+	 ('Danilov Konstantin Ruslanovich'),
+     ('Ponomareva Elizaveta Danilovna'),
+     ('Grigoriev Pavel Pavlovich'),
+     ('Sudakov Daniil Alekseevich'),
+     ('Karpov Mikhail Maksimovich');
+     
+     
+CREATE TABLE Marks (
+	id int not null,
+	student_id INT NOT NULL,
+	tas_id INT NOT NULL,
+	mark INT
+);
+
+INSERT INTO
+    Marks(id,student_id,tas_id,mark)
+VALUES
+-- группа ОБСТ203
+-- Масленников
+    (1,1,7,5),
+    (2,1,8,5),
+    (3,1,9,5),
+-- Горшкова
+    (4,2,7,5),
+    (5,2,8,5),
+    (6,2,9,5),
+-- Гришин
+    (7,3,7,4),
+    (8,3,8,3),
+    (9,3,9,5),
+-- Козлов нет одной оценки
+    (10,4,7,0),
+    (11,4,8,3),
+    (12,4,9,3),
+-- Ефимова 
+    (13,5,7,4),
+    (14,5,8,4),
+    (15,5,9,4),
+-- Семенова
+    (16,6,7,4),
+    (17,6,8,4),
+    (18,6,9,5),
+-- Нечаева
+    (19,7,7,4),
+    (20,7,8,5),
+    (21,7,9,5),
+-- группа ОБСТ 201
+-- Семенова
+    (22,8,7,4),
+    (23,8,8,5),
+    (24,8,9,5),
+-- Беликов
+    (25,9,7,3),
+    (26,9,8,3),
+    (27,9,9,2),
+-- Кравцов 
+    (28,10,7,4),
+    (29,10,8,3),
+    (30,10,9,4),
+-- Рудакова
+    (31,11,7,3),
+    (32,11,8,3),
+    (33,11,9,3),
+-- Зайцева нет 1 оценки
+    (34,12,7,3),
+    (35,12,8,0),
+    (36,12,9,2),
+-- Тихонова 
+    (37,13,7,5),
+    (38,13,8,5),
+    (39,13,9,5),
+-- Князев
+    (40,14,7,4),
+    (41,14,8,5),
+    (42,14,9,5),
+-- группа ОБСТ 202
+-- Филатов
+    (43,15,7,5),
+    (44,15,8,5),
+    (45,15,9,5),
+-- Софронов нет 3 оценок
+    (46,16,7,0),
+    (47,16,8,0),
+    (48,16,9,0),
+-- Леонова
+    (49,17,7,2),
+    (50,17,8,5),
+    (53,17,9,5),
+-- Петров
+    (54,18,7,4),
+    (55,18,8,3),
+    (56,18,9,5),
+-- Нестерова
+    (57,19,7,3),
+    (58,19,8,5),
+    (59,19,9,5),
+-- Коновалов
+    (60,20,7,4),
+    (61,20,8,5),
+    (62,20,9,2),
+-- Виноградова
+    (63,21,7,5),
+    (64,21,8,5),
+    (65,21,9,5),
+-- Группа М201
+-- Березина 
+    (66,22,1,5),
+    (67,22,2,5),
+    (68,22,3,5),
+-- Григорьева
+    (69,23,1,5),
+    (70,23,2,4),
+    (71,23,3,5),
+-- Макаров (нет 1 оценки)
+    (72,24,1,3),
+    (73,24,2,0),
+    (74,24,3,3),
+-- Лебедев (нет оценок)
+    (75,25,1,0),
+    (76,25,2,0),
+    (77,25,3,0),
+-- Латышева
+    (78,26,1,4),
+    (79,26,2,4),
+    (80,26,3,4),
+-- Носова
+    (81,27,1,3),
+    (82,27,2,4),
+    (83,27,3,3),
+-- Иванов
+    (84,28,1,5),
+    (85,28,2,5),
+    (86,28,3,5),
+-- Группа М202
+-- Левин
+    (87,29,1,5),
+    (88,29,2,5),
+    (89,29,3,5),
+-- Афанасьева
+    (90,30,1,4),
+    (91,30,2,4),
+    (92,30,3,4),
+-- Руднев
+    (93,31,1,3),
+    (94,31,2,4),
+    (95,31,3,4),
+-- Золотарев
+    (96,32,1,4),
+    (97,32,2,4),
+    (98,32,3,5),
+-- Трофимова
+    (99,33,1,4),
+    (100,33,2,5),
+    (101,33,3,4),
+-- Матвеева
+    (102,34,1,3),
+    (103,34,2,4),
+    (104,34,3,4),
+-- Морозов
+    (105,35,1,5),
+    (106,35,2,5),
+    (107,35,3,5),
+-- Группа М203
+-- Тарасова
+    (108,36,1,4),
+    (109,36,2,4),
+    (110,36,3,3),
+-- Сидоров
+    (111,37,1,4),
+    (112,37,2,3),
+    (113,37,3,4),
+-- Захаров
+    (114,38,1,3),
+    (115,38,2,5),
+    (116,38,3,4),
+-- Жуков
+    (117,39,1,4),
+    (118,39,2,4),
+    (119,39,3,2),
+-- Щербаков
+    (120,40,1,4),
+    (121,40,2,5),
+    (122,40,3,4),
+-- Исаков
+    (123,41,1,3),
+    (124,41,2,2),
+    (125,41,3,4),
+-- Суслова
+    (126,42,1,5),
+    (127,42,2,4),
+    (128,42,3,5),
+-- Группа АРКТ201
+-- Рыбаков
+    (129,43,4,5),
+    (130,43,5,5),
+    (131,43,6,5),
+-- Иванов
+    (132,44,4,4),
+    (133,44,5,5),
+    (134,44,6,5),
+-- Фокина
+    (135,45,4,3),
+    (136,45,5,3),
+    (137,45,6,3),
+-- Емельянова
+    (138,46,4,3),
+    (139,46,5,5),
+    (140,46,6,3),
+-- Семенов 
+    (141,47,4,4),
+    (142,47,5,2),
+    (143,47,6,4),
+-- Золотов
+    (144,48,4,4),
+    (145,48,5,4),
+    (146,48,6,4),
+-- Суслова
+    (147,49,4,3),
+    (148,49,5,4),
+    (149,49,6,5),
+-- Группа АРКТ202
+-- Попов
+    (150,50,4,3),
+    (151,50,5,4),
+    (152,50,6,5),
+-- Ильин
+    (153,51,4,5),
+    (154,51,5,5),
+    (155,51,6,5),
+-- Успенский
+    (156,52,4,5),
+    (157,52,5,5),
+    (158,52,6,5),
+-- Белов 
+    (159,53,4,4),
+    (160,53,5,4),
+    (161,53,6,5),
+-- Самсонова
+    (162,54,4,4),
+    (163,54,5,5),
+    (164,54,6,5),
+-- Павлов
+    (165,55,4,3),
+    (166,55,5,4),
+    (167,55,6,3),
+-- Белова
+    (168,56,4,5),
+    (169,56,5,5),
+    (170,56,6,5),
+-- Группа АРКТ203
+-- Назарова
+    (171,57,4,5),
+    (172,57,5,2),
+    (173,57,6,5),
+-- Соколова 
+    (174,58,4,5),
+    (175,58,5,5),
+    (176,58,6,5),
+-- Дубровин
+    (177,59,4,3),
+    (178,59,5,4),
+    (179,59,6,2),
+-- Парфенова
+    (180,60,4,4),
+    (181,60,5,5),
+    (182,60,6,4),
+-- Седов
+    (183,61,4,2),
+    (184,61,5,3),
+    (185,61,6,4),
+-- Орлов
+    (186,62,4,5),
+    (187,62,5,5),
+    (188,62,6,5),
+-- Титов
+    (189,63,4,4),
+    (190,63,5,4),
+    (191,63,6,4);
+
+CREATE TABLE Timetable (
+	id int not null,
+	start_t TIME NOT NULL,
+	end_t TIME NOT NULL,
+	number_lesson INT NOT NULL
+);
+
+INSERT INTO
+    Timetable(id,start_t,end_t,number_lesson)
+VALUES
+    (1,'08:00:00','9:30:00',1),
+    (2,'09:40:00','11:10:00',2),
+    (3,'11:25:00','12:55:00',3),
+    (4,'13:20:00','14:50:00',4),
+    (5,'15:05:00','16:35:00',5),
+    (6,'16:50:00','18:20:00',6),
+    (7,'18:30:00','20:00:00',7),
+    (8,'20:05:00','21:35:00',8);
+
+CREATE TABLE Study_schedule (
+	id int not null,
+	subj_id INT NOT NULL,
+	time_id INT NOT NULL,
+	date_lesson DATE NOT NULL
+);
+
+INSERT INTO
+    Study_schedule(id,subj_id,time_id,date_lesson)
+VALUES
+-- оптика ОБСТ201
+    (1,6,1,'2023-10-15'),
+    (2,6,2,'2023-10-15'),
+    (3,2,3,'2023-10-15'),
+    (4,7,1,'2023-10-16'),
+-- машиностроение  М202    
+    (5,1,3,'2023-10-15'),
+    (6,2,4,'2023-10-15'),
+    (7,2,5,'2023-10-15'),
+-- авиация АРКТ203   
+    (8,2,1,'2023-10-15'),
+    (9,4,1,'2023-10-16'),
+    (10,5,2,'2023-10-16');
+
+CREATE TABLE Attendance (
+	id int not null,
+	stud_id INT NOT NULL,
+	schedule_id INT NOT NULL,
+	attend bit NOT NULL,
+	teach_id INT NOT NULL
+);
+
+INSERT INTO
+    Attendance(id,stud_id,schedule_id,attend,teach_id)
+VALUES
+-- ОПТИКА ОБСТ201
+-- Семенова
+    (1,8,1,1,5),
+    (2,8,2,1,5),
+    (3,8,3,1,2),
+    (4,8,4,1,3),
+-- Беликов
+    (5,9,1,0,5),
+    (6,9,2,0,5),
+    (7,9,3,1,2),
+    (8,9,4,1,3),
+-- Кравцов
+    (9,10,1,1,5),
+    (10,10,2,1,5),
+    (11,10,3,1,2),
+    (12,10,4,1,3),
+-- Рудакова
+    (13,11,1,1,5),
+    (14,11,2,1,5),
+    (15,11,3,1,2),
+    (16,11,4,1,3),
+-- Зайцева
+    (17,12,1,0,5),
+    (18,12,2,0,5),
+    (19,12,3,0,2),
+    (20,12,4,0,3),
+-- Тихонова
+    (21,13,1,1,5),
+    (22,13,2,1,5),
+    (23,13,3,1,2),
+    (24,13,4,1,3),
+-- Князев
+    (25,14,1,1,5),
+    (26,14,2,1,5),
+    (27,14,3,1,2),
+    (28,14,4,1,3),
+    
+-- МАШИНОСТРОЕНИЕ М202    
+-- Левин
+    (29,29,5,1,1),
+    (30,29,6,1,2),
+    (31,29,7,1,2),
+-- Афанасьева
+    (32,30,5,1,1),
+    (33,30,6,1,2),
+    (34,30,7,1,2),
+-- Руднев
+    (35,31,5,0,1),
+    (36,31,6,1,2),
+    (37,31,7,1,2),
+-- Золотарев
+    (38,32,5,0,1),
+    (39,32,6,0,2),
+    (40,32,7,0,2),
+-- Трофимова
+    (41,33,5,1,1),
+    (42,33,6,0,2),
+    (43,33,7,0,2),
+-- Матвеева
+    (44,34,5,1,1),
+    (45,34,6,1,2),
+    (46,34,7,1,2),
+-- Морозов
+    (47,35,5,1,1),
+    (48,35,6,1,2),
+    (49,35,7,1,2),
+    
+-- АВИАЦИЯ АРКТ203   
+ -- Назарова
+    (50,57,8,1,2),
+    (51,57,9,1,4),
+    (52,57,10,1,4),
+-- Соколова
+    (53,58,8,1,2),
+    (54,58,9,1,4),
+    (55,58,10,1,4),
+-- Дубровин
+    (56,59,8,1,2),
+    (57,59,9,1,4),
+    (58,59,10,1,4),
+-- Парфенова
+    (59,60,8,1,2),
+    (60,60,9,1,4),
+    (61,60,10,1,4),
+-- Седов
+    (62,61,8,1,2),
+    (63,61,9,1,4),
+    (64,61,10,1,4),
+-- Орлов
+    (65,62,8,1,2),
+    (66,62,9,1,4),
+    (67,62,10,1,4),
+ -- Титов
+    (68,63,8,1,2),
+    (69,63,9,1,4),
+    (70,63,10,1,4);
