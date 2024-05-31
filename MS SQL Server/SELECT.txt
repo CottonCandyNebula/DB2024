@@ -1,0 +1,161 @@
+------ ЗАДАНИЕ 3 ------
+
+• Вывести списки групп по заданному направлению с указанием номера группы в формате ФИО, бюджет/внебюджет. Студентов выводить в алфавитном порядке.
+
+SELECT Students.name as 'Студент', Group_stud.designation as 'Группа', 
+    CASE 
+        WHEN Students.budget_place = 1 THEN 'Budget'
+        ELSE 'Non-budget'
+    END as 'Бюджет' 
+FROM Students 
+JOIN Group_stud ON Group_stud.id = Students.id_group 
+ORDER BY Students.name;
+
+• Вывести студентов с фамилией, начинающейся с первой буквы вашей фамилии, с указанием ФИО, номера группы и направления обучения.
+
+SELECT Students.name As 'Студент', Group_stud.designation As 'Группа', Direction.title As 'Направление' 
+FROM Direction 
+JOIN Group_stud ON Direction.id=Group_stud.direction_id 
+JOIN Students ON Students.id_group=Group_stud.id 
+WHERE Students.name LIKE 'K%'
+
+• Вывести список студентов для поздравления по месяцам в формате Фамилия И.О., день и название месяца рождения, номером группы и направлением обучения. 
+
+• Вывести студентов с указанием возраста в годах.
+SELECT Students.name, DATEDIFF(year, Students.date_of_birth, GETDATE()) AS 'age' FROM Students
+
+• Вывести студентов, у которых день рождения в текущем месяце.
+SELECT Students.name as 'Студент', Students.date_of_birth AS 'Дата рождения (этот месяц)' FROM Students WHERE MONTH(date_of_birth) = MONTH(GETDATE())
+
+• Вывести количество студентов по каждому направлению.
+SELECT COUNT(Students.name) AS 'Количество студентов', Direction.title AS 'Направление'
+FROM Direction
+JOIN Group_stud ON Group_stud.direction_id = Direction.id
+JOIN Students ON Students.id_group = Group_stud.id
+GROUP BY Direction.title
+
+• Вывести количество бюджетных и внебюджетных мест по группам. Для каждой группы вывести номер и название направления.
+SELECT
+    Group_stud.designation AS 'Группа',
+    Direction.title AS 'Направление',
+    SUM(CASE WHEN Students.budget_place = 1 THEN 1 ELSE 0 END) AS 'Кол-во бюджетных мест',
+    SUM(CASE WHEN Students.budget_place = 0 THEN 1 ELSE 0 END) AS 'Кол-во внебюджетных мест'
+FROM
+    Students
+JOIN
+    Group_stud ON Students.id_group = Group_stud.id
+JOIN
+    Direction ON Group_stud.direction_id = Direction.id
+GROUP BY
+    Group_stud.designation, Direction.title
+
+------ ЗАДАНИЕ 5 ------
+ 
+• Вывести списки групп каждому предмету с указанием преподавателя.
+
+SELECT 
+-- Direction.title AS Направление,
+Group_stud.designation AS Группа,
+Teachers.name_t AS Преподаватель,
+Subjects.subject AS Предмет
+FROM Direction
+JOIN teachers_and_subjects ON teachers_and_subjects.direction_id = Direction.id
+JOIN Group_stud ON Group_stud.direction_id = Direction.id
+JOIN Teachers ON Teachers.id = teachers_and_subjects.teacher_id
+JOIN Subjects ON Subjects.id = teachers_and_subjects.subject_id;
+
+• Определить, какую дисциплину изучает максимальное количество студентов.
+
+SELECT TOP 1 Subjects.subject AS Дисциплина, COUNT(DISTINCT Students.id) AS Сколько_студентов_изучает
+FROM Subjects
+JOIN teachers_and_subjects ON teachers_and_subjects.subject_id = Subjects.id
+JOIN Marks ON Marks.tas_id = teachers_and_subjects.id
+JOIN Students ON Students.id = Marks.student_id
+GROUP BY Subjects.subject ORDER BY COUNT(DISTINCT Students.id) DESC;
+
+• Определить сколько студентов обучатся у каждого их преподавателей.
+
+SELECT Teachers.name_t AS Преподаватель, COUNT(DISTINCT Students.id) AS Кол_во_студентов
+FROM Teachers
+JOIN teachers_and_subjects ON teachers_and_subjects.teacher_id = Teachers.id
+JOIN Marks ON Marks.tas_id = teachers_and_subjects.id
+JOIN Students ON Students.id = Marks.student_id
+GROUP BY Teachers.name_t;
+
+• Определить долю сдавших студентов по каждой дисциплине ("нет оценки" или "2" считать не сдавшими)
+-- 0 - значит нет оценки
+-- 2 - значит дисциплина не сдана
+
+SELECT Subjects.subject AS Дисциплина, COUNT(CASE WHEN Marks.mark > 2 THEN 1 END) AS Количество_сдавших
+FROM Subjects
+JOIN teachers_and_subjects ON teachers_and_subjects.subject_id = Subjects.id
+JOIN Marks ON Marks.tas_id = teachers_and_subjects.id
+JOIN Students ON Students.id = Marks.student_id
+GROUP BY Subjects.subject ORDER BY COUNT(Students.name) DESC;
+
+• Определить среднюю оценку по предметам (для сдавших студентов)
+
+SELECT Subjects.subject AS Дисциплина, ROUND(AVG(CASE WHEN Marks.mark > 2 THEN Marks.mark END), 2) AS Среднее_значение
+FROM Subjects
+JOIN teachers_and_subjects ON teachers_and_subjects.subject_id = Subjects.id
+JOIN Marks ON Marks.tas_id = teachers_and_subjects.id
+JOIN Students ON Students.id = Marks.student_id
+GROUP BY Subjects.subject
+ORDER BY COUNT(Students.name) DESC;
+
+-- ROUND( number, decimal_places)
+
+• Определить группу с максимальной средней оценкой (включая не сдавших)
+
+SELECT TOP 1 Group_stud.designation, AVG(Marks.mark) AS Максимальная_оценка
+FROM Group_stud
+JOIN Direction ON Direction.id = Group_stud.direction_id
+JOIN teachers_and_subjects ON teachers_and_subjects.direction_id = Direction.id
+JOIN Marks ON Marks.tas_id = teachers_and_subjects.id
+GROUP BY Group_stud.designation
+ORDER BY AVG(Marks.mark) DESC;
+
+• Вывести студентов со всем оценками отлично и не имеющих несданный экзамен
+
+SELECT Students.name
+FROM Students
+INNER JOIN Marks ON Students.id = Marks.student_id
+WHERE Marks.mark = 5
+GROUP BY Students.id, Students.name
+HAVING COUNT(Marks.mark) = (SELECT COUNT(*) FROM Marks WHERE student_id = Students.id)
+  AND NOT EXISTS (
+    SELECT 1 
+    FROM Marks
+    WHERE student_id = Students.id
+    AND mark < 2
+  );
+
+• Вывести кандидатов на отчисление (не сдан не менее двух предметов)
+
+SELECT Students.name FROM Students
+JOIN Marks ON Students.id = Marks.student_id
+WHERE Marks.mark IN (0, 2)
+GROUP BY Students.name HAVING COUNT(*) < 2;
+
+------ ЗАДАНИЕ 7 ------
+• Вывести по заданному предмету количество посещенных занятий.
+
+SELECT COUNT(*) AS 'Посещаемость предмета' FROM Attendance
+JOIN Study_schedule ON Attendance.schedule_id = Study_schedule.id
+JOIN Subjects ON Study_schedule.subj_id = Subjects.id
+WHERE Subjects.subject = 'Technical operation of aircraft and engines' AND Attendance.attend = 1
+
+• Вывести по заданному предмету количество пропущенных занятий.
+
+SELECT COUNT(*) AS 'Пропуски предмета студентами' FROM Attendance
+JOIN Study_schedule ON Attendance.schedule_id = Study_schedule.id
+JOIN Subjects ON Study_schedule.subj_id = Subjects.id
+WHERE Subjects.subject = 'Technical operation of aircraft and engines' AND Attendance.attend = 0
+
+• Вывести по заданному преподавателю количество студентов на каждом занятии.
+
+SELECT Teachers.name_t, Study_schedule.date_lesson, COUNT(*) FROM Teachers JOIN teachers_and_subjects ON teachers_and_subjects.teacher_id = Teachers.id
+JOIN Study_schedule ON Study_schedule.subj_id = teachers_and_subjects.id JOIN Attendance ON Attendance.schedule_id = Study_schedule.id WHERE Attendance.attend=1
+GROUP BY Teachers.name_t, Study_schedule.id, Study_schedule.date_lesson
+
+• Для каждого студента вывести общее время, потраченное на изучение каждого предмета.
