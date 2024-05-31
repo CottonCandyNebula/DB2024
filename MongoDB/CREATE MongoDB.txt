@@ -1,0 +1,1258 @@
+db.createCollection("Students")
+db.createCollection("Direction")
+db.createCollection("GroupStud")
+db.createCollection("Subjects")
+db.createCollection("Teachers")
+db.createCollection("Teachers_and_subjects")
+db.createCollection("Timetable")
+db.createCollection("Study_schedule")
+db.createCollection("Attendance")
+db.createCollection("Marks")
+
+db.Students.insertMany([
+    {
+      id: 1,
+      name: "Maslennikov Nikolai Pavlovich", 
+      date_of_birth: new Date("2004-10-21"),
+      address: "Voronezh, Karl Marx Street, 10",
+      email: "MaslennikovNikolai@yandex.ru",
+      id_group: 1,
+      budget_place: true,
+      phone_numbers: ["89921721781","84244155652"]
+    },
+    {
+      id: 2,
+      name: "Gorshkova Arina Mikhailovna",
+      date_of_birth: new Date("2004-08-25"),
+      address: "Saratov, Zheleznodorozhnaya str., 48",
+      email: "Arina.Gorshkova@gmail.com",
+      id_group: 1,
+      budget_place: true,
+      phone_numbers: ["80694224027"]
+    },
+    {
+      id: 3,
+      name: "Grishin Semyon Ilyich",
+      date_of_birth: new Date("2005-12-19"),
+      address: "Saratov, ul. Nagornaya, 1",
+      email: "Semen.Grishin@gmail.com",
+      id_group: 1,
+      budget_place: false,
+      phone_numbers: ["81170716596"]
+    },
+    {
+      id: 4,
+      name: "Kozlov Daniil Mykhailovych",
+      date_of_birth: new Date("2005-10-30"),
+      address: "Novosibirsk, ul. Stepnaya, 15",
+      email: "KozlovDaniil@yandex.ru",
+      id_group: 1,
+      budget_place: true,
+      phone_numbers: ["81741869980"] 
+    },
+    {
+      id: 5,
+      name: "Efimova Eva Ilyinichna",
+      date_of_birth: new Date("2004-04-20"),
+      address: "Krasnoyarsk, Kommunisticheskaya Street 1",
+      email: "EfimovaEva@yandex.ru",
+      id_group: 1,
+      budget_place: true,
+      phone_numbers: ["84062073875"] 
+    },
+    {
+      id: 6,
+      name: "Semenova Aleksandra Alekseevna",
+      date_of_birth: new Date("2004-09-25"),
+      address: "Saratov, ul. Sovetskaya, 44",
+      email: "Aleksandra.Semenova@gmail.com",
+      id_group: 1,
+      budget_place: false,
+      phone_numbers: ["86636090378","80112029383"]
+    },
+    {
+      id: 7,
+      name: "Nechaeva Elizaveta Egorovna",
+      date_of_birth: new Date("2005-10-27"),
+      address: "Voronezh, ul. Rabochaya, 50",
+      email: "NechaEva@example.com",
+      id_group: 1,
+      budget_place: true,
+      phone_numbers: ["89258586000"]
+    },
+    {
+      id: 8,
+      name: "Semenova Varvara Bogdanovna",
+      date_of_birth: new Date("2002-04-07"),
+      address: "Tyumen, ul. Zelenaya, 20",
+      email: "VarS_B@example.com",
+      id_group: 2,
+      budget_place: true,
+      phone_numbers: ["84969009891","82848566494"]
+    },
+    {
+      id: 8,
+      name: "Belikov Grigory Andreevich",
+      date_of_birth: new Date("2002-08-08"),
+      address: "Chelyabinsk, ul. Vishnevaya, 18",
+      email: "Gregori.Belikov@yandex.ru",
+      id_group: 2,
+      budget_place: false,
+      phone_numbers: ["80774706721"]
+    },
+    {
+      id: 10,
+      name: "Kravtsov Svyatoslav Makarovich",
+      date_of_birth: new Date("2003-10-30"),
+      address: "Saratov, ul. Andreeva, 16",
+      email: "Kravtsov_Svyat@gmail.com",
+      id_group: 2,
+      budget_place: true,
+      phone_numbers: ["87547085928"]
+    },
+    {
+      id: 11,
+      name: "Rudakova Miroslava Timofeevna",
+      date_of_birth: new Date("2003-03-31"),
+      address: "Saratov, ul. Aranovoi, 8",
+      email: "Miroslava.R@yandex.ru",
+      id_group: 2,
+      budget_place: true,
+      phone_numbers: ["86368827033"]
+    },
+    {
+      id: 12,
+      name: "Zaitseva Milana Alekseevna",
+      date_of_birth: new Date("2002-03-04"),
+      address: "Saratov, ul. Arbatskaya, 57",
+      email: "Zaitsev_Milan@gmail.com",
+      id_group: 2,
+      budget_place: true,
+      phone_numbers: ["85735744110","82638729871"]
+    },
+    {
+      id: 13,
+      name: "Tikhonova Viktoria Vladimirovna",
+      date_of_birth: new Date("2002-08-28"),
+      address: "Saratov, ul. Baikalskaya, 3",
+      email: "Viktoria.Tikhonova@yandex.ru",
+      id_group: 2,
+      budget_place: true,
+      phone_numbers: ["89449728484"]
+    },
+    {
+      id: 14,
+      name: "Knyazev Stepan Kirillovich",
+      date_of_birth: new Date("2002-08-21"),
+      address: "Saratova, ul. Baikalskaya 12",
+      email: "Stepan.Knyazev@yandex.ru",
+      id_group: 2,
+      budget_place: true,
+      phone_numbers: ["84035425621"]
+    },
+    {
+      id: 15,
+      name: "Filatov Nikita Yaroslavovich",
+      date_of_birth: new Date("2004-11-12"),
+      address: "Saratov, ul. Andreeva, 13",
+      email: "Filatov_Nikita@yandex.ru",
+      id_group: 3,
+      budget_place: false,
+      phone_numbers: ["82874718537"]
+    },
+    {
+      id: 16,
+      name: "Sofronov Boris Andreevich",
+      date_of_birth: new Date("2004-05-01"),
+      address: "Saratov, ul. Aranovoi, 6",
+      email: "Sofronov_Boris@yandex.ru",
+      id_group: 3,
+      budget_place: false,
+      phone_numbers: ["80983072123"]
+    },
+    {
+      id: 17,
+      name: "Leonova Sofia Glebovna",
+      date_of_birth: new Date("2004-11-12"),
+      address: "Saratov, ul. Artilleriskaya 8",
+      email: "Leonova_Sofia@yandex.ru",
+      id_group: 3,
+      budget_place: false,
+      phone_numbers: ["85623426908"]
+    },
+    {
+      id: 18,
+      name: "Petrov Nikolai Timofeevich",
+      date_of_birth: new Date("2004-05-04"),
+      address: "Saratov, ul. Aranovoi, 9",
+      email: "Petrov_Nikolai@yandex.ru",
+      id_group: 3,
+      budget_place: false,
+      phone_numbers: ["88119541532"]
+    },
+    {
+      id: 19,
+      name: "Nesterova Uliana Mikhailovna",
+      date_of_birth: new Date("2004-01-18"),
+      address: "Saratov, ul. Balashovskaya, 37",
+      email: "Nesterova_Uliana@yandex.ru",
+      id_group: 3,
+      budget_place: false,
+      phone_numbers: ["82162977456", "82351259654"]
+    },
+    {
+      id: 20,
+      name: "Konovalov Vladislav Vladimirovich",
+      date_of_birth: new Date("2003-02-15"),
+      address: "Saratov, ul. Bardina, 4",
+      email: "Konovalov_Vladislav@yandex.ru",
+      id_group: 3,
+      budget_place: false,
+      phone_numbers: ["88591279826"]
+    },
+    {
+      id: 21,
+      name: "Vinogradova Miloslava Dmitrievna",
+      date_of_birth: new Date("2003-01-25"),
+      address: "Saratov, ul. Bardina, 2",
+      email: "Vinogradova_Miloslava@yandex.ru",
+      id_group: 3,
+      budget_place: false,
+      phone_numbers: ["84917053398"]
+    },
+    {
+      id: 22,
+      name: "Berezina Anna Danilovna",
+      date_of_birth: new Date("2003-05-14"),
+      address: "Saratov, ul. Bardina, 6",
+      email: "Berezina_Anna@gmail.ru",
+      id_group: 4,
+      budget_place: true,
+      phone_numbers: ["87595430933"]
+    },
+    {
+      id: 23,
+      name: "Grigorieva Yana Arsentievna",
+      date_of_birth: new Date("2002-08-22"),
+      address: "Saratov, ul. Bakhmetyevskaya, 9",
+      email: "Grigorieva_Yana@yandex.ru",
+      id_group: 4,
+      budget_place: false,
+      phone_numbers: ["85302075529"]
+    },
+    {
+      id: 24,
+      name: "Makarov Mikhail Nikitich",
+      date_of_birth: new Date("2002-07-28"),
+      address: "Saratov, ul. Andreeva, 21",
+      email: "Makarov_Mikhail@yandex.ru",
+      id_group: 4,
+      budget_place: true,
+      phone_numbers: ["82712608717"]
+    },
+    {
+      id: 25,
+      name: "Lebedev Igor Pavlovich",
+      date_of_birth: new Date("2003-01-02"),
+      address: "Saratov, ul. Belinsky, 16",
+      email: "Lebedev_Igor@mail.ru",
+      id_group: 4,
+      budget_place: false,
+      phone_numbers: ["82399260327"]
+    },
+    {
+      id: 26,
+      name: "Latysheva Polina Artemyevna",
+      date_of_birth: new Date("2002-03-25"),
+      address: "Saratov, ul. Chkalova, 86",
+      email: "Latysheva_Polina@yandex.ru",
+      id_group: 4,
+      budget_place: true,
+      phone_numbers: ["84044499331"]
+    },
+    {
+      id: 27,
+      name: "Ivanov Ivan Makarovich",
+      date_of_birth: new Date("2002-12-10"),
+      address: "Saratov, ul. Bardina, 8",
+      email: "Ivanov_Ivan@gmail.ru",
+      id_group: 4,
+      budget_place: true,
+      phone_numbers: ["83425007358"]
+    },
+    {
+      id: 28,
+      name: "Nosova Stefaniya Alekseevna",
+      date_of_birth: new Date("2002-05-05"),
+      address: "Samara, Trudovaya St., 24",
+      email: "Nosova_Stefaniya@yandex.ru",
+      id_group: 4,
+      budget_place: false,
+      phone_numbers: ["88673469002"] 
+    },
+    {
+      id: 29,
+      name: "Levin Roman Fyodorovich",
+      date_of_birth: new Date("2003-06-02"),
+      address: "Saratov, ul. Bolsheshuberskaya, 13",
+      email: "Levin_Roman@yandex.ru",
+      id_group: 5,
+      budget_place: true,
+      phone_numbers: ["89305685437", "86399454129"]
+    },
+    {
+      id: 30,
+      name: "Afanasyeva Viktoria Ilyinichna",
+      date_of_birth: new Date("2003-12-23"),
+      address: "Saratov, ul. Druzhby 6",
+      email: "Afanasyeva_Viktoria@yandex.ru",
+      id_group: 5,
+      budget_place: true,
+      phone_numbers: ["82626799931"]
+    },
+    {
+      id: 31,
+      name: "Rudnev Erik Damirovich",
+      date_of_birth: new Date("2004-11-29"),
+      address: "Saratov, ul. Solnechnaya, 10",
+      email: "Rudnev_Erik@gmail.ru",
+      id_group: 5,
+      budget_place: false,
+      phone_numbers: ["89364884777"]
+    },
+    {
+      id: 32,
+      name: "Zolotarev Lev Ilyich",
+      date_of_birth: new Date("2004-12-19"),
+      address: "Saratov, ul. Tikhaya, 26",
+      email: "Zolotarev_Lev@mail.ru",
+      id_group: 5,
+      budget_place: true,
+      phone_numbers: ["87896720465"]
+    },
+    {
+      id: 33,
+      name: "Trofimova Kira Ivanovna",
+      date_of_birth: new Date("2003-12-11"),
+      address: "Saratov, ul. Lugovaya, 11",
+      email: "Trofimova_Kira@yandex.ru",
+      id_group: 5,
+      budget_place: true,
+      phone_numbers: ["88055626388"]
+    },
+    {
+      id: 34,
+      name: "Matveeva Arina Mikhailovna",
+      date_of_birth: new Date("2004-11-18"),
+      address: "Saratov, ul. Lesnaya, 4",
+      email: "Matveeva_Arina@yandex.ru",
+      id_group: 5,
+      budget_place: false,
+      phone_numbers: ["82489729629"]
+    },
+    {
+      id: 35,
+      name: "Morozov Kirill Konstantinovich",
+      date_of_birth: new Date("2004-09-26"),
+      address: "Saratov, Kuznechnaya St., 33",
+      email: "Morozov_Kirill@yandex.ru",
+      id_group: 5,
+      budget_place: true,
+      phone_numbers: ["80060080346"] 
+    },
+    {
+      id: 36,
+      name: "Tarasova Varvara Yuryevna",
+      date_of_birth: new Date("2004-07-21"),
+      address: "Saratov, ul. Novaya, 14",
+      email: "Varya_Tarasova@yandex.ru",
+      id_group: 6,
+      budget_place: true,
+      phone_numbers: ["81018844595"] 
+    },
+    {
+      id: 37,
+      name: "Sidorov Nikita Konstantinovich",
+      date_of_birth: new Date("2004-01-29"),
+      address: "Saratov, ul. Sergievo-Vladimirskaya, 26",
+      email: "Sidorov_Nik@gmail.com",
+      id_group: 6,
+      budget_place: true,
+      phone_numbers: ["88547829932"] 
+    },
+    {
+      id: 38,
+      name: "Zakharov Yaroslav Artyomovich",
+      date_of_birth: new Date("2004-01-01"),
+      address: "Saratov, Raduzhnaya St., 23",
+      email: "Yaro_Zak@hotmail.com",
+      id_group: 6,
+      budget_place: true,
+      phone_numbers: ["84623989840"]
+    },
+    {
+      id: 39,
+      name: "Zhukov Timofey Maksimovich",
+      date_of_birth: new Date("2004-12-11"),
+      address: "Saratov, ul. Sellakhskaya 4",
+      email: "Zhukov_Tim@gmail.com",
+      id_group: 6,
+      budget_place: true,
+      phone_numbers: ["89904022873"]
+    },
+    {
+      id: 40,
+      name: "Shcherbakov Daniil Mikhailovich",
+      date_of_birth: new Date("2005-05-08"),
+      address: "Solnechnogorsk, 70 Kosiora St",
+      email: "DMScherbakov@gmail.com",
+      id_group: 6,
+      budget_place: true,
+      phone_numbers: ["80271509449"] 
+    },
+    {
+      id: 41,
+      name: "Isakov Ivan Andreevich",
+      date_of_birth: new Date("2004-10-22"),
+      address: "Saratov, ul. Molokova, 7",
+      email: "Isakov_Ivan@mail.ru",
+      id_group: 6,
+      budget_place: true,
+      phone_numbers: ["89314682905"]
+    },
+    {
+      id: 42,
+      name: "Suslova Sofia Alexandrovna",
+      date_of_birth: new Date("2004-06-13"),
+      address: "Saratov, Naberezhnaya St., 12",
+      email: "Suslova_Sofia@mail.ru",
+      id_group: 6,
+      budget_place: true,
+      phone_numbers: ["83911245621"]
+    },
+    {
+      id: 43,	
+      name: "Rybakov Andrey Romanovich",
+      date_of_birth: new Date("2003-09-30"),
+      address: "Nizhniy Novgorod, ul. Polevaya, 19",
+      email: "Andrey_Rybakov@yandex.ru",
+      id_group: 7,
+      budget_place: true,
+      phone_numbers: ["87197306589"] 
+    },
+    {
+      id: 44,
+      name: "Ivanov Lev Mikhailovich",
+      date_of_birth: new Date("2002-09-15"),
+      address: "Shchelkovo, ul. Novaya, 13",
+      email: "leo.ivanov@gmail.com",
+      id_group: 7,
+      budget_place: false,
+      phone_numbers: ["85328320375"]
+    },
+    {
+      id: 45,
+      name: "Fokina Yulia Maksimovna",
+      date_of_birth: new Date("2002-03-25"),
+      address: "Saratov, ul. Molokova, 8",
+      email: "Yulia_Fokina@yandex.ru",
+      id_group: 7,
+      budget_place: true,
+      phone_numbers: ["85654364896"]
+    },
+    {
+      id: 46,
+      name: "Emelyanova Diana Dmitrievna",
+      date_of_birth: new Date("2002-02-11"),
+      address: "Saratov, ul. Lesnaya, 14",
+      email: "diana.emelyanova@gmail.com",
+      id_group: 7,
+      budget_place: true,
+      phone_numbers: ["89055354969"] 
+    },
+    {
+      id: 47,
+      name: "Semenov Georgy Timofeevich",
+      date_of_birth: new Date("2002-04-15"),
+      address: "Saratov, Tsentralnaya St., 3",
+      email: "Georgy_Semenov@yandex.ru",
+      id_group: 7,
+      budget_place: true,
+      phone_numbers: ["88664377861"]
+    },
+    {
+      id: 48,
+      name: "Zolotov Leonid Semenovich",
+      date_of_birth: new Date("2003-02-20"),
+      address: "Saratov, ul. Novaya, 18",
+      email: "Leonid_Zolotov@yandex.ru",
+      id_group: 7,
+      budget_place: false,
+      phone_numbers: ["88252034142"]
+    },
+    {
+      id: 49,
+      name: "Suslova Anna Makarovna",
+      date_of_birth: new Date("2003-02-13"),
+      address: "Saratov, ul. Dachnaya, 33",
+      email: "anna.suslova@gmail.com",
+      id_group: 7,
+      budget_place: true,
+      phone_numbers: ["84385986421"] 
+    },
+    {
+      id: 50,
+      name: "Popov Maksim Markovich",
+      date_of_birth: new Date("2004-09-27"),
+      address: "Saratov, ul. Lenina, 10",
+      email: "Maksim_Popov@yandex.ru",
+      id_group: 8,
+      budget_place: true,
+      phone_numbers: ["80366030012"]
+    },
+    {
+      id: 51,
+      name: "Ilyin Ilya Mykhailovych",
+      date_of_birth: new Date("2004-08-06"),
+      address: "Saratov, ul. Polevaya, 13",
+      email: "ilya.ilyin@gmail.com",
+      id_group: 8,
+      budget_place: true,
+      phone_numbers: ["80408408431"]
+    },
+    {
+      id: 52,
+      name: "Uspensky Kirill Lvovich",
+      date_of_birth: new Date("2003-02-07"),
+      address: "Saratov, ul. Dollunskaya, 29",
+      email: "Kirill_Uspensky@yandex.ru",
+      id_group: 8,
+      budget_place: false,
+      phone_numbers: ["86922356187"]
+    },
+    {
+      id: 53,
+      name: "Belov Bogdan Georgievich",
+      date_of_birth: new Date("2003-03-18"),
+      address: "Stroitelnaya str., 22, Saratov",
+      email: "bogdan.belov@gmail.com",
+      id_group: 8,
+      budget_place: true,
+      phone_numbers: ["88684149433"]
+    },
+    {
+      id: 54,
+      name: "Samsonova Elina Emirovna",
+      date_of_birth: new Date("2003-02-23"),
+      address: "Saratov, ul. Asinovskaya, 15",
+      email: "Elina_Samsonova@yandex.ru",
+      id_group: 8,
+      budget_place: true,
+      phone_numbers: ["85559566776"]
+    },
+    {
+      id: 55,
+      name: "Pavlov Andrey Ilyich",
+      date_of_birth: new Date("2004-04-30"),
+      address: "Saratov, ul. Severnaya 1",
+      email: "Andrey_Pavlov@yandex.ru",
+      id_group: 8,
+      budget_place: false,
+      phone_numbers: ["85354513045"]
+    },
+    {
+      id: 56,
+      name: "Belova Nikol Maksimovna",
+      date_of_birth: new Date("2003-02-08"),
+      address: "Saratov, ul. Dachnaya, 32",
+      email: "belova_n@gmail.com",
+      id_group: 8,
+      budget_place: false,
+      phone_numbers: ["82005529213"]
+    },
+    {
+      id: 57,
+      name: "Nazarova Alisa Tikhonovna",
+      date_of_birth: new Date("2004-07-29"),
+      address: "Penza, ul. Raduzhnaya, 14",
+      email: "Alisa_Nazarova@yandex.ru",
+      id_group: 9,
+      budget_place: false,
+      phone_numbers: ["85559566776"]
+    },
+    {
+      id: 58,
+      name: "Sokolova Avrora Markovna",
+      date_of_birth: new Date("2005-07-03"),
+      address: "Samara, ul. Partizanskaya, 14",
+      email: "avrora.sokolova@gmail.com",
+      id_group: 9,
+      budget_place: false,
+      phone_numbers: ["80018218220"]
+    },
+    {
+      id: 59,
+      name: "Dubrovin Dmitry Yaroslavovich",
+      date_of_birth: new Date("2004-01-09"),
+      address: "Saratov, ul. Asinovskaya, 16",
+      email: "Dmitry_Dubrovin@yandex.ru",
+      id_group: 9,
+      budget_place: true,
+      phone_numbers: ["87320732569","80647655349"]
+    },
+    {
+      id: 60,
+      name: "Parfenova Eva Alexandrovna",
+      date_of_birth: new Date("2005-03-10"),
+      address: "Saratov, Druzhby St., 8",
+      email: "Eva_Parfenova@yandex.ru",
+      id_group: 9,
+      budget_place: true,
+      phone_numbers: ["80244446970"]
+    },
+    {
+      id: 61,
+      name: "Sedov Aleksandr Vladimirovich",
+      date_of_birth: new Date("2005-08-30"),
+      address: "Saratov, ul. Aranovoi, 8",
+      email: "Aleksandr_Sedov@yandex.ru",
+      id_group: 9,
+      budget_place: true,
+      phone_numbers: ["83076323452"] 
+    },
+    {
+      id: 62,
+      name: "Orlov Yury Artyomovich",
+      date_of_birth: new Date("2004-03-26"),
+      address: "Saratov, ul. Andreeva, 16",
+      email: "Yuri_Orlov@yandex.ru",
+      id_group: 9,
+      budget_place: false,
+      phone_numbers: ["81858444125"]
+    },
+    {
+      id: 63,
+      name: "Titov Daniil Yegorovich",
+      date_of_birth: new Date("2004-11-17"),
+      address: "Saratov, ul. Chkalova, 87",
+      email: "daniil.titov@gmail.com",
+      id_group: 9,
+      budget_place: true,
+      phone_numbers: ["83609857717"]
+    }
+]);
+
+db.Direction.insertMany([
+    {
+      id: 1, 
+      title: "OPTICAL AND BIOTECHNICAL SYSTEMS AND TECHNOLOGIES"
+    },
+    {
+      id: 2, 
+      title: "MECHANICAL ENGINEERING"
+    }, 
+    {
+      id: 3, 
+      title: "AVIATION AND ROCKET AND SPACE ENGINEERING"
+    }
+]);
+
+db.GroupStud.insertMany([
+    {
+      id: 1, 
+      designation: "OBST203",
+      direction_id: 1
+    },
+    {
+      id: 2, 
+      designation: "OBST201",
+      direction_id: 1
+    },
+    {
+      id: 3, 
+      designation: "OBST202",
+      direction_id: 1
+    },
+    {
+      id: 4, 
+      designation: "M201",
+      direction_id: 2
+    },
+    {
+      id: 5, 
+      designation: "M202",
+      direction_id: 2
+    },
+    {
+      id: 6, 
+      designation: "M203",
+      direction_id: 2
+    },
+    {
+      id: 7, 
+      designation: "ARCT201",
+      direction_id: 3
+    },
+    {
+      id: 8, 
+      designation: "ARCT202",
+      direction_id: 3
+    },
+    {
+      id: 9, 
+      designation: "ARCT203",
+      direction_id: 3
+    }
+]);
+
+db.Subjects.insertMany([
+    { 
+      id: 1, 
+      subject: "Technical mechanics"
+    },
+    { 
+      id: 2, 
+      subject: "Higher Mathematics"
+    },
+    { 
+      id: 3,
+      subject: "Metrology"
+    },
+    { 
+      id: 4, 
+      subject: "Technical operation of aircraft and engines"
+    },
+    { 
+      id: 5, 
+      subject: "Electric power and energy supply"
+    },
+    { 
+      id: 6, 
+      subject: "Device, systems and medical products"
+    },
+    { 
+      id: 7, 
+      subject: "Radiometry and Spectrometry"
+    }
+]);
+
+db.Teachers.insertMany([
+    { 
+      id: 1,
+      name_t: "Danilov Konstantin Ruslanovich"
+    },
+    { 
+      id: 2, 
+      name_t: "Ponomareva Elizaveta Danilovna"
+    },
+    { 
+      id: 3,
+      name_t: "Grigoriev Pavel Pavlovich"
+    },
+    { 
+      id: 4,
+      name_t: "Sudakov Daniil Alekseevich"
+    },
+    { 
+      id: 5, 
+      name_t: "Karpov Mikhail Maksimovich"
+    }
+]);
+
+db.Teachers_and_subjects.insertMany([
+    { 
+        id: 1,
+        subject_id: 1,
+        teacher_id: 1,
+        direction_id: 2 
+    },
+    { 
+        id: 2,
+        subject_id: 2,
+        teacher_id: 2,
+        direction_id: 2 
+    },
+    { 
+        id: 3,
+        subject_id: 3,
+        teacher_id: 3,
+        direction_id: 2 
+    },
+    { 
+        id: 4,
+        subject_id: 2,
+        teacher_id: 2,
+        direction_id: 3 
+    },
+    { 
+        id: 5,
+        subject_id: 4,
+        teacher_id: 4,
+        direction_id: 3 
+    },
+    { 
+        id: 6,
+        subject_id: 5,
+        teacher_id: 4,
+        direction_id: 3 
+    },
+    { 
+        id: 7,
+        subject_id: 6,
+        teacher_id: 5,
+        direction_id: 1 
+    },
+    { 
+        id: 8,
+        subject_id: 2,
+        teacher_id: 2,
+        direction_id: 1 
+    },
+    { 
+        id: 9,
+        subject_id: 7,
+        teacher_id: 3,
+        direction_id: 1 
+    }
+]);
+
+db.Timetable.insertMany([
+    { 
+        id: 1,
+        start_t: "08:00:00",
+        end_t: "9:30:00",
+        number_lesson: 1 
+    },
+    { 
+        id: 2,
+        start_t: "09:40:00",
+        end_t: "11:10:00",
+        number_lesson: 2 
+    },
+    { 
+        id: 3,
+        start_t: "11:25:00",
+        end_t: "12:55:00",
+        number_lesson: 3 
+    },
+    { 
+        id: 4,
+        start_t: "13:20:00",
+        end_t: "14:50:00",
+        number_lesson: 4 
+    },
+    { 
+        id: 5,
+        start_t: "15:05:00",
+        end_t: "16:35:00",
+        number_lesson: 5 
+    },
+    { 
+        id: 6,
+        start_t: "16:50:00",
+        end_t: "18:20:00",
+        number_lesson: 6  
+    },
+    { 
+        id: 7,
+        start_t: "18:30:00",
+        end_t: "20:00:00",
+        number_lesson: 7  
+    },
+    { 
+        id: 8,
+        start_t: "20:00:00",
+        end_t: "21:35:00",
+        number_lesson: 8  
+    }
+]);
+
+db.Study_schedule.insertMany([
+    { 
+        id: 1,
+        subj_id: 6,
+        time_id: 1,
+        date_lesson: new Date("2023-10-15")  
+    },
+    { 
+        id: 2,
+        subj_id: 6,
+        time_id: 2,
+        date_lesson: new Date("2023-10-15") 
+    },
+    { 
+        id: 3,
+        subj_id: 2,
+        time_id: 3,
+        date_lesson: new Date("2023-10-15") 
+    },
+    { 
+        id: 4,
+        subj_id: 7,
+        time_id: 1,
+        date_lesson: new Date("2023-10-16") 
+    },
+    { 
+        id: 5,
+        subj_id: 1,
+        time_id: 3,
+        date_lesson: new Date("2023-10-15") 
+    },
+    { 
+        id: 6,
+        subj_id: 2,
+        time_id: 4,
+        date_lesson: new Date("2023-10-15") 
+    },
+    { 
+        id: 7,
+        subj_id: 2,
+        time_id: 5,
+        date_lesson: new Date("2023-10-15") 
+    },
+    { 
+        id: 8,
+        subj_id: 2,
+        time_id: 1,
+        date_lesson: new Date("2023-10-15") 
+    },
+    { 
+        id: 9,
+        subj_id: 4,
+        time_id: 1,
+        date_lesson: new Date("2023-10-16") 
+    },
+    { 
+        id: 10,
+        subj_id: 5,
+        time_id: 2,
+        date_lesson: new Date("2023-10-16") 
+    }
+]);
+
+db.Attendance.insertMany([
+    { id: 1, stud_id: 8, schedule_id: 1, attend: 1, teach_id: 5 },
+    { id: 2, stud_id: 8, schedule_id: 2, attend: 1, teach_id: 5 },
+    { id: 3, stud_id: 8, schedule_id: 3, attend: 1, teach_id: 2 },
+    { id: 4, stud_id: 8, schedule_id: 4, attend: 1, teach_id: 3 },
+    { id: 5, stud_id: 9, schedule_id: 1, attend: 0, teach_id: 5 },
+    { id: 6, stud_id: 9, schedule_id: 2, attend: 0, teach_id: 5 },
+    { id: 7, stud_id: 9, schedule_id: 3, attend: 1, teach_id: 2 },
+    { id: 8, stud_id: 9, schedule_id: 4, attend: 1, teach_id: 3 },
+    { id: 9, stud_id: 10, schedule_id: 1, attend: 1, teach_id: 5 },
+    { id: 10, stud_id: 10, schedule_id: 2, attend: 1, teach_id: 5 },
+    { id: 11, stud_id: 10, schedule_id: 3, attend: 1, teach_id: 2 },
+    { id: 12, stud_id: 10, schedule_id: 4, attend: 1, teach_id: 3 },
+    { id: 13, stud_id: 11, schedule_id: 1, attend: 1, teach_id: 5 },
+    { id: 14, stud_id: 11, schedule_id: 2, attend: 1, teach_id: 5 },
+    { id: 15, stud_id: 11, schedule_id: 3, attend: 1, teach_id: 2 },
+    { id: 16, stud_id: 11, schedule_id: 4, attend: 1, teach_id: 3 },
+    { id: 17, stud_id: 12, schedule_id: 1, attend: 0, teach_id: 5 },
+    { id: 18, stud_id: 12, schedule_id: 2, attend: 0, teach_id: 5 },
+    { id: 19, stud_id: 12, schedule_id: 3, attend: 0, teach_id: 2 },
+    { id: 20, stud_id: 12, schedule_id: 4, attend: 0, teach_id: 3 },
+    { id: 21, stud_id: 13, schedule_id: 1, attend: 1, teach_id: 5 },
+    { id: 22, stud_id: 13, schedule_id: 2, attend: 1, teach_id: 5 },
+    { id: 23, stud_id: 13, schedule_id: 3, attend: 1, teach_id: 2 },
+    { id: 24, stud_id: 13, schedule_id: 4, attend: 1, teach_id: 3 },
+    { id: 25, stud_id: 14, schedule_id: 1, attend: 1, teach_id: 5 },
+    { id: 26, stud_id: 14, schedule_id: 2, attend: 1, teach_id: 5 },
+    { id: 27, stud_id: 14, schedule_id: 3, attend: 1, teach_id: 2 },
+    { id: 28, stud_id: 14, schedule_id: 4, attend: 1, teach_id: 3 },
+    { id: 29, stud_id: 29, schedule_id: 5, attend: 1, teach_id: 1 },
+    { id: 30, stud_id: 29, schedule_id: 6, attend: 1, teach_id: 2 },
+    { id: 31, stud_id: 29, schedule_id: 7, attend: 1, teach_id: 2 },
+    { id: 32, stud_id: 30, schedule_id: 5, attend: 1, teach_id: 1 },
+    { id: 33, stud_id: 30, schedule_id: 6, attend: 1, teach_id: 2 },
+    { id: 34, stud_id: 30, schedule_id: 7, attend: 1, teach_id: 2 },
+    { id: 35, stud_id: 31, schedule_id: 5, attend: 0, teach_id: 1 },
+    { id: 36, stud_id: 31, schedule_id: 6, attend: 1, teach_id: 2 },
+    { id: 37, stud_id: 31, schedule_id: 7, attend: 1, teach_id: 2 },
+    { id: 38, stud_id: 32, schedule_id: 5, attend: 0, teach_id: 1 },
+    { id: 39, stud_id: 32, schedule_id: 6, attend: 0, teach_id: 2 },
+    { id: 40, stud_id: 32, schedule_id: 7, attend: 0, teach_id: 2 },
+    { id: 41, stud_id: 33, schedule_id: 5, attend: 1, teach_id: 1 },
+    { id: 42, stud_id: 33, schedule_id: 6, attend: 0, teach_id: 2 },
+    { id: 43, stud_id: 33, schedule_id: 7, attend: 0, teach_id: 2 },
+    { id: 44, stud_id: 34, schedule_id: 5, attend: 1, teach_id: 1 },
+    { id: 45, stud_id: 34, schedule_id: 6, attend: 1, teach_id: 2 },
+    { id: 46, stud_id: 34, schedule_id: 7, attend: 1, teach_id: 2 },
+    { id: 47, stud_id: 35, schedule_id: 5, attend: 1, teach_id: 1 },
+    { id: 48, stud_id: 35, schedule_id: 6, attend: 1, teach_id: 2 },
+    { id: 49, stud_id: 35, schedule_id: 7, attend: 1, teach_id: 2 },
+    { id: 50, stud_id: 57, schedule_id: 8, attend: 1, teach_id: 2 },
+    { id: 51, stud_id: 57, schedule_id: 9, attend: 1, teach_id: 4 },
+    { id: 52, stud_id: 57, schedule_id: 10, attend: 1, teach_id: 4 },
+    { id: 53, stud_id: 58, schedule_id: 8, attend: 1, teach_id: 2 },
+    { id: 54, stud_id: 58, schedule_id: 9, attend: 1, teach_id: 4 },
+    { id: 55, stud_id: 58, schedule_id: 10, attend: 1, teach_id: 4 },
+    { id: 56, stud_id: 59, schedule_id: 8, attend: 1, teach_id: 2 },
+    { id: 57, stud_id: 59, schedule_id: 9, attend: 1, teach_id: 4 },
+    { id: 58, stud_id: 59, schedule_id: 10, attend: 1, teach_id: 4 },
+    { id: 59, stud_id: 60, schedule_id: 8, attend: 1, teach_id: 2 },
+    { id: 60, stud_id: 60, schedule_id: 9, attend: 1, teach_id: 4 },
+    { id: 61, stud_id: 60, schedule_id: 10, attend: 1, teach_id: 4 },
+    { id: 62, stud_id: 61, schedule_id: 8, attend: 1, teach_id: 2 },
+    { id: 63, stud_id: 61, schedule_id: 9, attend: 1, teach_id: 4 },
+    { id: 64, stud_id: 61, schedule_id: 10, attend: 1, teach_id: 4 },
+    { id: 65, stud_id: 62, schedule_id: 8, attend: 1, teach_id: 2 },
+    { id: 66, stud_id: 62, schedule_id: 9, attend: 1, teach_id: 4 },
+    { id: 67, stud_id: 62, schedule_id: 10, attend: 1, teach_id: 4 },
+    { id: 68, stud_id: 63, schedule_id: 8, attend: 1, teach_id: 2 },
+    { id: 69, stud_id: 63, schedule_id: 9, attend: 1, teach_id: 4 },
+    { id: 70, stud_id: 63, schedule_id: 10, attend: 1, teach_id: 4 } 
+]);
+
+db.Marks.insertMany([
+    { id: 1, student_id: 1, tas_id: 7, mark: 5 },
+    { id: 2, student_id: 1, tas_id: 8, mark: 5 },
+    { id: 3, student_id: 1, tas_id: 9, mark: 5 },
+
+    { id: 4, student_id: 2, tas_id: 7, mark: 5 },
+    { id: 5, student_id: 2, tas_id: 8, mark: 5 },
+    { id: 6, student_id: 2, tas_id: 9, mark: 5 },
+
+    { id: 7, student_id: 3, tas_id: 7, mark: 4 },
+    { id: 8, student_id: 3, tas_id: 8, mark: 3 },
+    { id: 9, student_id: 3, tas_id: 9, mark: 5 },
+
+    { id: 10, student_id: 4, tas_id: 7, mark: 0 },
+    { id: 11, student_id: 4, tas_id: 8, mark: 3 },
+    { id: 12, student_id: 4, tas_id: 9, mark: 3 },
+
+    { id: 13, student_id: 5, tas_id: 7, mark: 4 },
+    { id: 14, student_id: 5, tas_id: 8, mark: 4 },
+    { id: 15, student_id: 5, tas_id: 9, mark: 4 },
+
+    { id: 16, student_id: 6, tas_id: 7, mark: 4 },
+    { id: 17, student_id: 6, tas_id: 8, mark: 4 },
+    { id: 18, student_id: 6, tas_id: 9, mark: 5 },
+    
+    { id: 19, student_id: 7, tas_id: 7, mark: 4 },
+    { id: 20, student_id: 7, tas_id: 8, mark: 5 },
+    { id: 21, student_id: 7, tas_id: 9, mark: 5 },
+
+    { id: 22, student_id: 8, tas_id: 7, mark: 3 },
+    { id: 23, student_id: 8, tas_id: 8, mark: 3 },
+    { id: 24, student_id: 8, tas_id: 9, mark: 2 },
+
+    { id: 25, student_id: 9, tas_id: 7, mark: 3 },
+    { id: 26, student_id: 9, tas_id: 8, mark: 3 },
+    { id: 27, student_id: 9, tas_id: 9, mark: 2 },
+    
+    { id: 28, student_id: 10, tas_id: 7, mark: 4 },
+    { id: 29, student_id: 10, tas_id: 8, mark: 3 },
+    { id: 30, student_id: 10, tas_id: 9, mark: 4 },
+
+    { id: 31, student_id: 11, tas_id: 7, mark: 3 },
+    { id: 32, student_id: 11, tas_id: 8, mark: 3 },
+    { id: 33, student_id: 11, tas_id: 9, mark: 3 },
+
+    { id: 34, student_id: 12, tas_id: 7, mark: 3 },
+    { id: 35, student_id: 12, tas_id: 8, mark: 0 },
+    { id: 36, student_id: 12, tas_id: 9, mark: 2 },
+
+    { id: 37, student_id: 13, tas_id: 7, mark: 5 },
+    { id: 38, student_id: 13, tas_id: 8, mark: 5 },
+    { id: 39, student_id: 13, tas_id: 9, mark: 5 },
+
+    { id: 40, student_id: 14, tas_id: 7, mark: 4 },
+    { id: 41, student_id: 14, tas_id: 8, mark: 5 },
+    { id: 42, student_id: 14, tas_id: 9, mark: 5 },
+
+    { id: 43, student_id: 15, tas_id: 7, mark: 5 },
+    { id: 44, student_id: 15, tas_id: 8, mark: 5 },
+    { id: 45, student_id: 15, tas_id: 9, mark: 5 },
+
+    { id: 46, student_id: 16, tas_id: 7, mark: 0 },
+    { id: 47, student_id: 16, tas_id: 8, mark: 0 },
+    { id: 48, student_id: 16, tas_id: 9, mark: 0 },
+
+    { id: 49, student_id: 17, tas_id: 7, mark: 2 },
+    { id: 50, student_id: 17, tas_id: 8, mark: 5 },
+    { id: 51, student_id: 17, tas_id: 9, mark: 5 },
+    
+    { id: 52, student_id: 18, tas_id: 7, mark: 4 },
+    { id: 53, student_id: 18, tas_id: 8, mark: 3 },
+    { id: 54, student_id: 18, tas_id: 9, mark: 5 },
+    
+    { id: 55, student_id: 19, tas_id: 7, mark: 3 },
+    { id: 56, student_id: 19, tas_id: 8, mark: 5 },
+    { id: 57, student_id: 19, tas_id: 9, mark: 5 },
+    
+    { id: 58, student_id: 20, tas_id: 7, mark: 4 },
+    { id: 59, student_id: 20, tas_id: 8, mark: 5 },
+    { id: 60, student_id: 20, tas_id: 9, mark: 2 },
+    
+    { id: 61, student_id: 21, tas_id: 7, mark: 5 },
+    { id: 62, student_id: 21, tas_id: 8, mark: 5 },
+    { id: 63, student_id: 21, tas_id: 9, mark: 5 },
+    
+    { id: 64, student_id: 22, tas_id: 1, mark: 5 },
+    { id: 65, student_id: 22, tas_id: 2, mark: 5 },
+    { id: 66, student_id: 22, tas_id: 3, mark: 5 },
+    
+    { id: 67, student_id: 23, tas_id: 1, mark: 5 },
+    { id: 68, student_id: 23, tas_id: 2, mark: 4 },
+    { id: 69, student_id: 23, tas_id: 3, mark: 5 },
+    
+    { id: 70, student_id: 24, tas_id: 1, mark: 3 },
+    { id: 71, student_id: 24, tas_id: 2, mark: 0 },
+    { id: 72, student_id: 24, tas_id: 3, mark: 3 },
+    
+    { id: 73, student_id: 25, tas_id: 1, mark: 0 },
+    { id: 74, student_id: 25, tas_id: 2, mark: 0 },
+    { id: 75, student_id: 25, tas_id: 3, mark: 0 },
+    
+    { id: 76, student_id: 26, tas_id: 1, mark: 4 },
+    { id: 77, student_id: 26, tas_id: 2, mark: 4 },
+    { id: 78, student_id: 26, tas_id: 3, mark: 4 },
+    
+    { id: 79, student_id: 27, tas_id: 1, mark: 3 },
+    { id: 80, student_id: 27, tas_id: 2, mark: 4 },
+    { id: 81, student_id: 27, tas_id: 3, mark: 3 },
+    
+    { id: 82, student_id: 28, tas_id: 1, mark: 5 },
+    { id: 83, student_id: 28, tas_id: 2, mark: 5 },
+    { id: 84, student_id: 28, tas_id: 3, mark: 5 },
+    
+    { id: 85, student_id: 29, tas_id: 1, mark: 5 },
+    { id: 86, student_id: 29, tas_id: 2, mark: 5 },
+    { id: 87, student_id: 29, tas_id: 3, mark: 5 },
+    
+    { id: 88, student_id: 30, tas_id: 1, mark: 4 },
+    { id: 89, student_id: 30, tas_id: 2, mark: 4 },
+    { id: 90, student_id: 30, tas_id: 3, mark: 4 },
+    
+    { id: 91, student_id: 31, tas_id: 1, mark: 3 },
+    { id: 92, student_id: 31, tas_id: 2, mark: 4 },
+    { id: 93, student_id: 31, tas_id: 3, mark: 4 },
+    
+    { id: 94, student_id: 32, tas_id: 1, mark: 4 },
+    { id: 95, student_id: 32, tas_id: 2, mark: 4 },
+    { id: 96, student_id: 32, tas_id: 3, mark: 5 },
+    
+    { id: 97, student_id: 33, tas_id: 1, mark: 4 },
+    { id: 98, student_id: 33, tas_id: 2, mark: 5 },
+    { id: 99, student_id: 33, tas_id: 3, mark: 4 },
+    
+    { id: 100, student_id: 34, tas_id: 1, mark: 3 },
+    { id: 101, student_id: 34, tas_id: 2, mark: 4 },
+    { id: 102, student_id: 34, tas_id: 3, mark: 4 },
+    
+    { id: 103, student_id: 35, tas_id: 1, mark: 5 },
+    { id: 104, student_id: 35, tas_id: 2, mark: 5 },
+    { id: 105, student_id: 35, tas_id: 3, mark: 5 },
+    
+    { id: 106, student_id: 36, tas_id: 1, mark: 4 },
+    { id: 107, student_id: 36, tas_id: 2, mark: 4 },
+    { id: 108, student_id: 36, tas_id: 3, mark: 3 },
+    
+    { id: 109, student_id: 37, tas_id: 1, mark: 4 },
+    { id: 110, student_id: 37, tas_id: 2, mark: 3 },
+    { id: 111, student_id: 37, tas_id: 3, mark: 4 },
+    
+    { id: 112, student_id: 38, tas_id: 1, mark: 3 },
+    { id: 113, student_id: 38, tas_id: 2, mark: 5 },
+    { id: 114, student_id: 38, tas_id: 3, mark: 4 },
+    
+    { id: 115, student_id: 39, tas_id: 1, mark: 4 },
+    { id: 116, student_id: 39, tas_id: 2, mark: 4 },
+    { id: 117, student_id: 39, tas_id: 3, mark: 2 },
+    
+    { id: 118, student_id: 40, tas_id: 1, mark: 4 },
+    { id: 119, student_id: 40, tas_id: 2, mark: 5 },
+    { id: 120, student_id: 40, tas_id: 3, mark: 4 },
+    
+    { id: 121, student_id: 41, tas_id: 1, mark: 3 },
+    { id: 122, student_id: 41, tas_id: 2, mark: 2 },
+    { id: 123, student_id: 41, tas_id: 3, mark: 4 },
+    
+    { id: 124, student_id: 42, tas_id: 1, mark: 5 },
+    { id: 125, student_id: 42, tas_id: 2, mark: 4 },
+    { id: 126, student_id: 42, tas_id: 3, mark: 5 },
+    
+    { id: 127, student_id: 43, tas_id: 4, mark: 5 },
+    { id: 128, student_id: 43, tas_id: 5, mark: 5 },
+    { id: 129, student_id: 43, tas_id: 6, mark: 5 },
+    
+    { id: 130, student_id: 44, tas_id: 4, mark: 4 },
+    { id: 131, student_id: 44, tas_id: 5, mark: 5 },
+    { id: 132, student_id: 44, tas_id: 6, mark: 5 },
+    
+    { id: 133, student_id: 45, tas_id: 4, mark: 3 },
+    { id: 134, student_id: 45, tas_id: 5, mark: 3 },
+    { id: 135, student_id: 45, tas_id: 6, mark: 3 },
+    
+    { id: 136, student_id: 46, tas_id: 4, mark: 3 },
+    { id: 137, student_id: 46, tas_id: 5, mark: 5 },
+    { id: 138, student_id: 46, tas_id: 6, mark: 5 },
+    
+    { id: 139, student_id: 47, tas_id: 4, mark: 4 },
+    { id: 140, student_id: 47, tas_id: 5, mark: 2 },
+    { id: 141, student_id: 47, tas_id: 6, mark: 4 },
+    
+    { id: 142, student_id: 48, tas_id: 4, mark: 4 },
+    { id: 143, student_id: 48, tas_id: 5, mark: 4 },
+    { id: 144, student_id: 48, tas_id: 6, mark: 4 },
+    
+    { id: 145, student_id: 49, tas_id: 4, mark: 3 },
+    { id: 146, student_id: 49, tas_id: 5, mark: 4 },
+    { id: 147, student_id: 49, tas_id: 6, mark: 4 },
+    
+    { id: 148, student_id: 50, tas_id: 4, mark: 3 },
+    { id: 149, student_id: 50, tas_id: 5, mark: 4 },
+    { id: 150, student_id: 50, tas_id: 6, mark: 5 },
+    
+    { id: 151, student_id: 51, tas_id: 4, mark: 5 },
+    { id: 152, student_id: 51, tas_id: 5, mark: 5 },
+    { id: 153, student_id: 51, tas_id: 6, mark: 5 },
+    
+    { id: 154, student_id: 52, tas_id: 4, mark: 4 },
+    { id: 155, student_id: 52, tas_id: 5, mark: 4 },
+    { id: 156, student_id: 52, tas_id: 6, mark: 5 },
+    
+    { id: 157, student_id: 53, tas_id: 4, mark: 4 },
+    { id: 158, student_id: 53, tas_id: 5, mark: 4 },
+    { id: 159, student_id: 53, tas_id: 6, mark: 5 },
+    
+    { id: 160, student_id: 54, tas_id: 4, mark: 4 },
+    { id: 161, student_id: 54, tas_id: 5, mark: 5 },
+    { id: 162, student_id: 54, tas_id: 6, mark: 5 },
+    
+    { id: 163, student_id: 55, tas_id: 4, mark: 3 },
+    { id: 164, student_id: 55, tas_id: 5, mark: 4 },
+    { id: 165, student_id: 55, tas_id: 6, mark: 3 },
+    
+    { id: 169, student_id: 56, tas_id: 4, mark: 5 },
+    { id: 170, student_id: 56, tas_id: 5, mark: 5 },
+    { id: 171, student_id: 56, tas_id: 6, mark: 5 },
+    
+    { id: 172, student_id: 57, tas_id: 4, mark: 5 },
+    { id: 173, student_id: 57, tas_id: 5, mark: 2 },
+    { id: 174, student_id: 57, tas_id: 6, mark: 5 },
+    
+    { id: 175, student_id: 58, tas_id: 4, mark: 5 },
+    { id: 176, student_id: 58, tas_id: 5, mark: 5 },
+    { id: 177, student_id: 58, tas_id: 6, mark: 5 },
+    
+    { id: 178, student_id: 59, tas_id: 4, mark: 3 },
+    { id: 179, student_id: 59, tas_id: 5, mark: 4 },
+    { id: 180, student_id: 59, tas_id: 6, mark: 2 },
+    
+    { id: 181, student_id: 60, tas_id: 4, mark: 4 },
+    { id: 182, student_id: 60, tas_id: 5, mark: 5 },
+    { id: 183, student_id: 60, tas_id: 6, mark: 4 },
+    
+    { id: 184, student_id: 61, tas_id: 4, mark: 2 },
+    { id: 185, student_id: 61, tas_id: 5, mark: 3 },
+    { id: 186, student_id: 61, tas_id: 6, mark: 4 },
+    
+    { id: 187, student_id: 62, tas_id: 4, mark: 5 },
+    { id: 188, student_id: 62, tas_id: 5, mark: 5 },
+    { id: 189, student_id: 62, tas_id: 6, mark: 5 },
+    
+    { id: 190, student_id: 63, tas_id: 4, mark: 4 },
+    { id: 191, student_id: 63, tas_id: 5, mark: 4 },
+    { id: 192, student_id: 63, tas_id: 6, mark: 4 }
+]);
